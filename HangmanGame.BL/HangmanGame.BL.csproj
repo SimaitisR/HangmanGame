@@ -51,8 +51,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Interfaces\ICRUDRepository.cs" />
+    <Compile Include="Models\HiddenWord.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Interfaces\IWordManager.cs" />
+    <Compile Include="Interfaces\IRandomUtils.cs" />
+    <Compile Include="Services\HiddenWordManager.cs" />
+    <Compile Include="Interfaces\IHiddenWordManager.cs" />
+    <Compile Include="Services\PlayerManager.cs" />
+    <Compile Include="Services\RandomUtils.cs" />
+    <Compile Include="Services\WordManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -64,10 +72,7 @@
       <Name>HangmanGame.DL</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Interfaces\" />
-    <Folder Include="Services\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

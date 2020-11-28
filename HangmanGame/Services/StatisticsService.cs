@@ -8,5 +8,9 @@ namespace HangmanGame.Services
 {
     class StatisticsService
     {
+        public StatisticsService()
+        {
+
+        }
     }
 }

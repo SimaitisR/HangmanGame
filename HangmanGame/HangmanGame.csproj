@@ -58,6 +58,7 @@
     <Compile Include="Services\GameService.cs" />
     <Compile Include="Interfaces\IPictureFactory.cs" />
     <Compile Include="Interfaces\IUiMessageFactory.cs" />
+    <Compile Include="Interfaces\IGameService.cs" />
     <Compile Include="Services\PictureFactory.cs" />
     <Compile Include="Services\StatisticsService.cs" />
     <Compile Include="Services\UiMessageFactory.cs" />

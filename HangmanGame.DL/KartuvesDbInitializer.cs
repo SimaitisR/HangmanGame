@@ -371,21 +371,23 @@ namespace HangmanGame.DL
 
 
             });
-
-            User user = new User()
-            {
-                Name = "Tester"
-            };
             var word = new Word()
             {
                 Name = "Siauliai",
                 Subject = miestai,
                 SubjectId = miestai.Id,
-
-
+            };
+            User user = new User()
+            {
+                Name = "Tester",
+            };
+            ScoreBoard sb = new ScoreBoard() { 
+                Time = DateTime.UtcNow,
+                Word=word,
+                User=user
             };
 
-            
+            context.ScoreBoards.Add(sb);
 
             context.Users.Add(user);
         }

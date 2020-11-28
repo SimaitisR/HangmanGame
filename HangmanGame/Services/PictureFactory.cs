@@ -7,7 +7,8 @@ namespace HangmanGame.Services
     public class PictureFactory : IPictureFactory
     {
         readonly static List<char> charList = new List<char>() { '|', 'o', '|', '\\', '/', 'O', '/', '\\', '|' };
-        public void DisplayPicture(int incorrectGuessCount, string zodis,
+        
+        public virtual void DisplayPicture(int incorrectGuessCount, string zodis,
             List<char> atspetosRaides,
             List<char> spetosRaides)
         {
@@ -15,7 +16,7 @@ namespace HangmanGame.Services
             DrawGuessingPart(zodis, atspetosRaides, spetosRaides);
         }
 
-        static void DrawGuessingPart(string zodis,
+        public virtual void DrawGuessingPart(string zodis,
             List<char> atspetosRaides,
             List<char> spetosRaides)
         {
@@ -39,7 +40,7 @@ namespace HangmanGame.Services
             }
             Console.WriteLine();
         }
-        static void DrawHangman(int input)
+        public virtual void DrawHangman(int input)
         {
             int[] usedParts = new int[8];
             for (int i = 1; i <= input; i++)

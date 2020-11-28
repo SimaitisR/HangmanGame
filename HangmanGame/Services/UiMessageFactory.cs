@@ -14,6 +14,33 @@ namespace HangmanGame.Services
         {
             _pictureFactory = new PictureFactory();
         }
+        public virtual void InputNameMessage()
+        {
+            Console.WriteLine("Iveskite zaidejo varda");
+        }
+        public virtual void InputMessage()
+        {
+            Console.WriteLine("Zaidimas prasidejo!");
+            Console.WriteLine("Atlikite pirma spejima!");
+        }
+        public virtual void WrongInputMessage()
+        {
+            Console.WriteLine("Neteisingai ivesta reiksme");
+            Console.WriteLine("Bandykite dar karta...");
+        }
+        public virtual void GuessedWrong()
+        {
+            Console.WriteLine("Neteisingas spejimas!");
+        }
+        public virtual void GuessedRight()
+        {
+            Console.WriteLine("Teisingas spejimas!");
+        }
+        public virtual void SelectSubjectMessage()
+        {
+            Console.WriteLine("Pasirinkite tema zodziamas!");
+            Console.WriteLine("Nurodykite temos skaiciu: ");
+        }
         public virtual void VictoryMessage()
         {
             Console.WriteLine("----------------++++++++++++++----------------");
@@ -35,9 +62,10 @@ namespace HangmanGame.Services
             Console.WriteLine("Iveskite 2: Pradekite nauja zaidima! ");
             Console.WriteLine("----------------++++++++++++++----------------");
         }
-        public virtual void DisplaySubjects()
-        {
 
+        public void DisplayHangman(int guessCount,string word ,List<char> guessed, List<char> correct)
+        {
+            _pictureFactory.DisplayPicture(guessCount, word,guessed, correct);
         }
     }
 }
