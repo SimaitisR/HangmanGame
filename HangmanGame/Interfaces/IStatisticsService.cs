@@ -1,6 +1,4 @@
-﻿using HangmanGame.DL.Models;
-
-namespace HangmanGame.Interfaces
+﻿namespace HangmanGame.Interfaces
 {
     interface IStatisticsService
     {

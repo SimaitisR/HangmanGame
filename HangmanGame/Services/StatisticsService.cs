@@ -11,8 +11,8 @@ namespace HangmanGame.Services
 {
     class StatisticsService : IStatisticsService
     {
-        private IUiMessageFactory _uiMessageFactory;
-        private IScoreboardManager _scoreBoardManager;
+        private readonly IUiMessageFactory _uiMessageFactory;
+        private readonly IScoreboardManager _scoreBoardManager;
 
         public StatisticsService()
         {
@@ -37,8 +37,8 @@ namespace HangmanGame.Services
             int correctGuesses = sbList.Select(x => x).Where(x => x.IsCorrect).Count();
             int incorrectGuesses = sbList.Select(x => x).Where(x=>!x.IsCorrect).Count();
 
-            float cProc = (correctGuesses * 100) / (correctGuesses + incorrectGuesses);
-            float iProc = (incorrectGuesses * 100) / (correctGuesses + incorrectGuesses);
+            float cProc = (float)(correctGuesses * 100) / (correctGuesses + incorrectGuesses);
+            float iProc = (float)(incorrectGuesses * 100) / (correctGuesses + incorrectGuesses);
 
             Console.WriteLine($"Bendra zaidimu statistika");
             Console.WriteLine($"Teisingai atspeti zodziai: {correctGuesses} : procentais {cProc}");

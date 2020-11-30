@@ -1,16 +1,10 @@
-﻿using HangmanGame.BL.Services;
-using HangmanGame.DL;
-using HangmanGame.Interfaces;
+﻿using HangmanGame.Interfaces;
 using HangmanGame.Services;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HangmanGame
 {
-    class Program
+    static class Program
     {
         static void Main(string[] args)
         {

@@ -8,5 +8,7 @@ namespace HangmanGame.BL.Interfaces
         void AddWordToPlayedList(Word word);
         List<Subject> GetSubjects();
         List<Word> GetWordsWithSubject(Subject subject);
+        void IncreaseIncorrectCount(string word);
+        void IncreaseWordPlayed(string word);
     }
 }

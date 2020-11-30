@@ -12,26 +12,26 @@ namespace HangmanGame.Services
 
     class GameService :  IGameService
     {
-        private IWordManager _wordManager;
-        private IUiMessageFactory _uiMessageFactory;
-        private IRandomUtils _randomUtils;
-        private IHiddenWordManager _hiddenWordManager;
-        private ICRUDRepository _playerManager;
-        private IScoreboardManager _scoreBoardManager;
-
-        private Subject _selectedSubject;
-        private List<Word> _wordListWithSubject;
+        private readonly IWordManager _wordManager;
+        private readonly IUiMessageFactory _uiMessageFactory;
+        private readonly IRandomUtils _randomUtils;
+        private readonly ICRUDRepository _playerManager;
+        private readonly IScoreboardManager _scoreBoardManager;
+        
         private const int maxGuess = 7;
-        private int guessCount = 0;
-        private int incorrectGuess = 0;
-        private bool isWordGuessedCorrectly = false;
+
+        private IHiddenWordManager _hiddenWordManager;
+        private List<Word> _wordListWithSubject;
+        private int guessCount;
+        private int incorrectGuess;
+        private bool isWordGuessedCorrectly;
+        public Subject selectedSubject { get; set; }
 
         public GameService()
         {
             _uiMessageFactory = new UiMessageFactory();
             _wordManager = new WordManager();
             _randomUtils = new RandomUtils();
-            _selectedSubject = new Subject();
             _wordListWithSubject = new List<Word>();
             _playerManager = new PlayerManager();
             _scoreBoardManager = new ScoreboardManager();
@@ -39,17 +39,19 @@ namespace HangmanGame.Services
 
         public void Begin()
         {
-            Console.Clear();
+            Clear();
+
             _uiMessageFactory.InputNameMessage();
 
             User user = new User();
             user.Name = Console.ReadLine();
             _playerManager.CreateUser(user.Name);
 
-            _selectedSubject = SelectSubjectFromList();
-            _wordListWithSubject = _wordManager.GetWordsWithSubject(_selectedSubject);
+            selectedSubject = SelectSubjectFromList();
+            _wordListWithSubject = _wordManager.GetWordsWithSubject(selectedSubject);
 
             Word selectedWord = _randomUtils.SelectRandomWordFromList(_wordListWithSubject);
+            _wordManager.IncreaseWordPlayed(selectedWord.Name);
 
             CreateHiddenWordInstance(selectedWord);
             _wordManager.AddWordToPlayedList(selectedWord);
@@ -87,10 +89,21 @@ namespace HangmanGame.Services
             if (isWordGuessedCorrectly)
                 _uiMessageFactory.VictoryMessage();
             else
+            {
                 _uiMessageFactory.DefeatMessage();
+                _wordManager.IncreaseIncorrectCount(selectedWord.Name);
+            }
 
             RemoveWordFromList(selectedWord);
             SaveScoreBoard(user, selectedWord);
+        }
+
+        private void Clear()
+        {
+            Console.Clear();
+            isWordGuessedCorrectly = false;
+            guessCount = 0;
+            incorrectGuess = 0;
         }
 
         private void SaveScoreBoard(User user, Word selectedWord)

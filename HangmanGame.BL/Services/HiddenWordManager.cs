@@ -1,11 +1,8 @@
 ﻿using HangmanGame.BL.Interfaces;
 using HangmanGame.BL.Models;
 using HangmanGame.DL.Models;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HangmanGame.BL.Services
 {

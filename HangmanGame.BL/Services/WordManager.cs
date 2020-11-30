@@ -1,11 +1,8 @@
 ﻿using HangmanGame.BL.Interfaces;
 using HangmanGame.DL;
 using HangmanGame.DL.Models;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HangmanGame.BL.Services
 {
@@ -21,6 +18,26 @@ namespace HangmanGame.BL.Services
         public void AddWordToPlayedList(Word word)
         {
             _playedWords.Add(word);
+        }
+        public virtual void IncreaseWordPlayed(string word)
+        {
+            using (var context = new KartuvesDbContext())
+            {
+                var inc = context.Words.FirstOrDefault(x => x.Name == word);
+                inc.WordPlayedCount++;
+
+                context.SaveChanges();
+            }
+        }
+        public virtual void IncreaseIncorrectCount(string word)
+        {
+            using (var context = new KartuvesDbContext())
+            {
+                var inc = context.Words.FirstOrDefault(x => x.Name == word);
+                inc.WordNotGuessedCount++;
+
+                context.SaveChanges();
+            }
         }
 
         public List<Subject> GetSubjects()
