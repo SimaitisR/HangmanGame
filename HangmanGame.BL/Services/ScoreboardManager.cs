@@ -31,12 +31,22 @@ namespace HangmanGame.BL.Services
             return sb;
         }
 
-        public virtual List<ScoreBoard> GetScoreBoards(string user)
+        public virtual List<ScoreBoard> GetUserScoreBoards(string user)
         {
             List<ScoreBoard> sb = new List<ScoreBoard>();
             using (var context = new KartuvesDbContext())
             {
                 sb = context.ScoreBoards.Select(x => x).Where(u => u.User.Name == user).ToList();
+            }
+            return sb;
+        }
+
+        public virtual List<ScoreBoard> GetAll()
+        {
+            List<ScoreBoard> sb = new List<ScoreBoard>();
+            using (var context = new KartuvesDbContext())
+            {
+                sb = context.ScoreBoards.Select(x => x).ToList();
             }
             return sb;
         }

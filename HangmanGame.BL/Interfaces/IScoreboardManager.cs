@@ -6,6 +6,7 @@ namespace HangmanGame.BL.Interfaces
     public interface IScoreboardManager
     {
         ScoreBoard CreateScoreBoard(User user, Word word, int guessCount, bool isCorrect);
-        List<ScoreBoard> GetScoreBoards(string user);
+        List<ScoreBoard> GetAll();
+        List<ScoreBoard> GetUserScoreBoards(string user);
     }
 }

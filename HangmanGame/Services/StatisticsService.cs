@@ -4,6 +4,7 @@ using HangmanGame.DL.Models;
 using HangmanGame.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 
 namespace HangmanGame.Services
@@ -24,32 +25,25 @@ namespace HangmanGame.Services
             Console.Clear();
 
             _uiMessageFactory.WelcomeToStatistics();
-            _uiMessageFactory.InputNameMessage();
-
-            string input = Console.ReadLine();
-
-            List<ScoreBoard> sbList = new List<ScoreBoard>();
-
-            sbList = _scoreBoardManager.GetScoreBoards(input);
-
-            if (sbList.Count == 0)
-            {
-                _uiMessageFactory.UsernameNotFound();
-
-            }
-            else
-            {
-                foreach (var item in sbList)
-                {
-                    Console.WriteLine($"Zaidejo vardas: {input} ");
-                    Console.WriteLine($"Spetas zodis: {item.WordToGuess}");
-                    Console.WriteLine($"Ar atspetas zodis? : {item.IsCorrect}");
-                    Console.WriteLine($"Spejimu skaicius : {item.GuessCount}");
-                    Console.WriteLine($"Kada zaista : {item.Time}");
-                }
-            }
+            DisplayAllAroundStatistics();
 
             Console.WriteLine("Paspauskite bet kuri klavisa gristi i pradini langa");
+        }
+
+        public virtual void DisplayAllAroundStatistics()
+        {
+            var sbList = _scoreBoardManager.GetAll();
+
+            int correctGuesses = sbList.Select(x => x).Where(x => x.IsCorrect).Count();
+            int incorrectGuesses = sbList.Select(x => x).Where(x=>!x.IsCorrect).Count();
+
+            float cProc = (correctGuesses * 100) / (correctGuesses + incorrectGuesses);
+            float iProc = (incorrectGuesses * 100) / (correctGuesses + incorrectGuesses);
+
+            Console.WriteLine($"Bendra zaidimu statistika");
+            Console.WriteLine($"Teisingai atspeti zodziai: {correctGuesses} : procentais {cProc}");
+            Console.WriteLine($"Neteisingai atspeti zodziai: {incorrectGuesses} : procentais {iProc}");
+            
         }
     }
 }
