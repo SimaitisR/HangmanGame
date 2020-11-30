@@ -63,17 +63,19 @@ namespace HangmanGame.BL.Services
             return user;
         }
 
-        public virtual void UpdateUser(int userId, ScoreBoard scoreBoard)
-        {
-            User user = new User();
 
+
+        public virtual void UpdateUser(User user,Word word, ScoreBoard scoreBoard)
+        {
             using (var context = new KartuvesDbContext())
             {
-                user = context.Users.FirstOrDefault(u => u.Id == userId);
-            }
-            if (user != null && scoreBoard != null)
-            {
-                user.ScoreBoards.Add(scoreBoard);
+                user = context.Users.FirstOrDefault(u => user.Id == u.Id);
+
+                if (user != null && scoreBoard != null)
+                {
+                    user.ScoreBoards.Add(scoreBoard);
+                    context.SaveChanges();
+                }
             }
         }
     }

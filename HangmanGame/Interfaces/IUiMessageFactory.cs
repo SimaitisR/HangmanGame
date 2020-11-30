@@ -8,11 +8,13 @@ namespace HangmanGame.Interfaces
         void DisplayHangman(int guessCount, string word, List<char> guessed, List<char> correct);
         void GuessedRight();
         void GuessedWrong();
-        void InputMessage();
+        void FirstGuessMessage();
         void InputNameMessage();
         void SelectSubjectMessage();
         void VictoryMessage();
         void WelcomeMessage();
+        void WelcomeToStatistics();
         void WrongInputMessage();
+        void UsernameNotFound();
     }
 }

@@ -12,7 +12,7 @@ namespace HangmanGame.BL.Interfaces
         void CreateUser(string name);
         List<User> ReadAllUsersData();
         User ReadUserData(int userId);
-        void UpdateUser(int userId, ScoreBoard scoreBoard);
         void DeleteUser(int userId);
+        void UpdateUser(User user, Word word, ScoreBoard scoreBoard);
     }
 }

@@ -14,6 +14,7 @@ namespace HangmanGame.DL.Models
         public virtual User User { get; set; }
         public int WordId { get; set; }
         public virtual Word Word { get; set; }
+        public string WordToGuess { get; set; }
         public DateTime Time { get; set; }
         public bool IsCorrect { get; set; }
         public int GuessCount { get; set; }

@@ -42,7 +42,19 @@ namespace HangmanGame.DL
 
             context.Words.Add(new Word()
             {
-                Name = "Rimantas",
+                Name = "RIMANTAS",
+                Subject = vardai,
+                SubjectId = vardai.Id,
+            });
+            context.Words.Add(new Word()
+            {
+                Name = "ARUNAS",
+                Subject = vardai,
+                SubjectId = vardai.Id,
+            });
+            context.Words.Add(new Word()
+            {
+                Name = "GRIEDRIUS",
                 Subject = vardai,
                 SubjectId = vardai.Id,
 
@@ -50,7 +62,7 @@ namespace HangmanGame.DL
             });
             context.Words.Add(new Word()
             {
-                Name = "Arunas",
+                Name = "RIMVYDAS",
                 Subject = vardai,
                 SubjectId = vardai.Id,
 
@@ -58,7 +70,7 @@ namespace HangmanGame.DL
             });
             context.Words.Add(new Word()
             {
-                Name = "Giedrius",
+                Name = "RAMUNAS",
                 Subject = vardai,
                 SubjectId = vardai.Id,
 
@@ -66,7 +78,7 @@ namespace HangmanGame.DL
             });
             context.Words.Add(new Word()
             {
-                Name = "Rimvydas",
+                Name = "ALGIRDAS",
                 Subject = vardai,
                 SubjectId = vardai.Id,
 
@@ -74,7 +86,7 @@ namespace HangmanGame.DL
             });
             context.Words.Add(new Word()
             {
-                Name = "Ramunas",
+                Name = "SARUNAS",
                 Subject = vardai,
                 SubjectId = vardai.Id,
 
@@ -82,7 +94,7 @@ namespace HangmanGame.DL
             });
             context.Words.Add(new Word()
             {
-                Name = "Algirdas",
+                Name = "ARVYDAS",
                 Subject = vardai,
                 SubjectId = vardai.Id,
 
@@ -90,7 +102,7 @@ namespace HangmanGame.DL
             });
             context.Words.Add(new Word()
             {
-                Name = "Sarunas",
+                Name = "JUOZAPAS",
                 Subject = vardai,
                 SubjectId = vardai.Id,
 
@@ -98,23 +110,7 @@ namespace HangmanGame.DL
             });
             context.Words.Add(new Word()
             {
-                Name = "Arvydas",
-                Subject = vardai,
-                SubjectId = vardai.Id,
-
-
-            });
-            context.Words.Add(new Word()
-            {
-                Name = "Juozapas",
-                Subject = vardai,
-                SubjectId = vardai.Id,
-
-
-            });
-            context.Words.Add(new Word()
-            {
-                Name = "Gintautas",
+                Name = "GINTAUTAS",
                 Subject = vardai,
                 SubjectId = vardai.Id,
 
@@ -123,7 +119,7 @@ namespace HangmanGame.DL
 
             context.Words.Add(new Word()
             {
-                Name = "Siksnosparnis",
+                Name = "SIKSNOSPARNIS",
                 Subject = gyvunai,
                 SubjectId = gyvunai.Id,
 
@@ -131,7 +127,7 @@ namespace HangmanGame.DL
             });
             context.Words.Add(new Word()
             {
-                Name = "Antilope",
+                Name = "ANTILOPE",
                 Subject = gyvunai,
                 SubjectId = gyvunai.Id,
 
@@ -139,7 +135,7 @@ namespace HangmanGame.DL
             });
             context.Words.Add(new Word()
             {
-                Name = "Orangutangas",
+                Name = "ORANGUTANGAS",
                 Subject = gyvunai,
                 SubjectId = gyvunai.Id,
 
@@ -147,7 +143,7 @@ namespace HangmanGame.DL
             });
             context.Words.Add(new Word()
             {
-                Name = "Simpanze",
+                Name = "SIMPANZE",
                 Subject = gyvunai,
                 SubjectId = gyvunai.Id,
 
@@ -155,7 +151,7 @@ namespace HangmanGame.DL
             });
             context.Words.Add(new Word()
             {
-                Name = "Tigras",
+                Name = "TIGRAS",
                 Subject = gyvunai,
                 SubjectId = gyvunai.Id,
 
@@ -163,7 +159,7 @@ namespace HangmanGame.DL
             });
             context.Words.Add(new Word()
             {
-                Name = "Dramblys",
+                Name = "DRAMBLYS",
                 Subject = gyvunai,
                 SubjectId = gyvunai.Id,
 
@@ -171,7 +167,7 @@ namespace HangmanGame.DL
             });
             context.Words.Add(new Word()
             {
-                Name = "Asilas",
+                Name = "ASILAS",
                 Subject = gyvunai,
                 SubjectId = gyvunai.Id,
 
@@ -179,7 +175,7 @@ namespace HangmanGame.DL
             });
             context.Words.Add(new Word()
             {
-                Name = "Kiaule",
+                Name = "KIAULE",
                 Subject = gyvunai,
                 SubjectId = gyvunai.Id,
 
@@ -187,7 +183,7 @@ namespace HangmanGame.DL
             });
             context.Words.Add(new Word()
             {
-                Name = "Krokodilas",
+                Name = "KROKODILAS",
                 Subject = gyvunai,
                 SubjectId = gyvunai.Id,
 
@@ -195,7 +191,7 @@ namespace HangmanGame.DL
             });
             context.Words.Add(new Word()
             {
-                Name = "Bebras",
+                Name = "BEBRAS",
                 Subject = gyvunai,
                 SubjectId = gyvunai.Id,
 
@@ -203,7 +199,7 @@ namespace HangmanGame.DL
             });
             context.Words.Add(new Word()
             {
-                Name = "Meskenas",
+                Name = "MESKENAS",
                 Subject = gyvunai,
                 SubjectId = gyvunai.Id,
 
@@ -212,7 +208,7 @@ namespace HangmanGame.DL
 
             context.Words.Add(new Word()
             {
-                Name = "Lietuva",
+                Name = "LIETUVA",
                 Subject = valstybes,
                 SubjectId = valstybes.Id,
 
@@ -220,7 +216,7 @@ namespace HangmanGame.DL
             });
             context.Words.Add(new Word()
             {
-                Name = "Anglija",
+                Name = "ANGLIJA",
                 Subject = valstybes,
                 SubjectId = valstybes.Id,
 
@@ -228,7 +224,7 @@ namespace HangmanGame.DL
             });
             context.Words.Add(new Word()
             {
-                Name = "Prancuzija",
+                Name = "PRANCUZIJA",
                 Subject = valstybes,
                 SubjectId = valstybes.Id,
 
@@ -236,7 +232,7 @@ namespace HangmanGame.DL
             });
             context.Words.Add(new Word()
             {
-                Name = "Slovakija",
+                Name = "SLOVAKIJA",
                 Subject = valstybes,
                 SubjectId = valstybes.Id,
 
@@ -244,7 +240,7 @@ namespace HangmanGame.DL
             });
             context.Words.Add(new Word()
             {
-                Name = "Lenkija",
+                Name = "LENKIJA",
                 Subject = valstybes,
                 SubjectId = valstybes.Id,
 
@@ -252,7 +248,7 @@ namespace HangmanGame.DL
             });
             context.Words.Add(new Word()
             {
-                Name = "Estija",
+                Name = "ESTIJA",
                 Subject = valstybes,
                 SubjectId = valstybes.Id,
 
@@ -260,7 +256,7 @@ namespace HangmanGame.DL
             });
             context.Words.Add(new Word()
             {
-                Name = "Latvija",
+                Name = "LATVIJA",
                 Subject = valstybes,
                 SubjectId = valstybes.Id,
 
@@ -268,7 +264,7 @@ namespace HangmanGame.DL
             });
             context.Words.Add(new Word()
             {
-                Name = "Suomija",
+                Name = "SUOMIJA",
                 Subject = valstybes,
                 SubjectId = valstybes.Id,
 
@@ -276,7 +272,7 @@ namespace HangmanGame.DL
             });
             context.Words.Add(new Word()
             {
-                Name = "Norvegija",
+                Name = "NORVEGIJA",
                 Subject = valstybes,
                 SubjectId = valstybes.Id,
 
@@ -284,7 +280,7 @@ namespace HangmanGame.DL
             });
             context.Words.Add(new Word()
             {
-                Name = "Svedija",
+                Name = "SVEDIJA",
                 Subject = valstybes,
                 SubjectId = valstybes.Id,
 
@@ -293,7 +289,7 @@ namespace HangmanGame.DL
 
             context.Words.Add(new Word()
             {
-                Name = "Kaunas",
+                Name = "KAUNAS",
                 Subject = miestai,
                 SubjectId = miestai.Id,
 
@@ -301,7 +297,7 @@ namespace HangmanGame.DL
             });
             context.Words.Add(new Word()
             {
-                Name = "Vilnius",
+                Name = "VILNIUS",
                 Subject = miestai,
                 SubjectId = miestai.Id,
 
@@ -309,7 +305,7 @@ namespace HangmanGame.DL
             });
             context.Words.Add(new Word()
             {
-                Name = "Klaipeda",
+                Name = "KLAIPEDA",
                 Subject = miestai,
                 SubjectId = miestai.Id,
 
@@ -317,7 +313,7 @@ namespace HangmanGame.DL
             });
             context.Words.Add(new Word()
             {
-                Name = "Panevezys",
+                Name = "PANEVEZYS",
                 Subject = miestai,
                 SubjectId = miestai.Id,
 
@@ -325,7 +321,7 @@ namespace HangmanGame.DL
             });
             context.Words.Add(new Word()
             {
-                Name = "Utena",
+                Name = "UTENA",
                 Subject = miestai,
                 SubjectId = miestai.Id,
 
@@ -333,7 +329,7 @@ namespace HangmanGame.DL
             });
             context.Words.Add(new Word()
             {
-                Name = "Silute",
+                Name = "SILUTE",
                 Subject = miestai,
                 SubjectId = miestai.Id,
 
@@ -341,7 +337,7 @@ namespace HangmanGame.DL
             });
             context.Words.Add(new Word()
             {
-                Name = "Vievis",
+                Name = "VIEVIS",
                 Subject = miestai,
                 SubjectId = miestai.Id,
 
@@ -349,7 +345,7 @@ namespace HangmanGame.DL
             });
             context.Words.Add(new Word()
             {
-                Name = "Ramygala",
+                Name = "RAMYGALA",
                 Subject = miestai,
                 SubjectId = miestai.Id,
 
@@ -357,7 +353,7 @@ namespace HangmanGame.DL
             });
             context.Words.Add(new Word()
             {
-                Name = "Silale",
+                Name = "SILALE",
                 Subject = miestai,
                 SubjectId = miestai.Id,
 
@@ -365,7 +361,7 @@ namespace HangmanGame.DL
             });
             context.Words.Add(new Word()
             {
-                Name = "Siauliai",
+                Name = "SIAULIAI",
                 Subject = miestai,
                 SubjectId = miestai.Id,
 
@@ -373,7 +369,7 @@ namespace HangmanGame.DL
             });
             var word = new Word()
             {
-                Name = "Siauliai",
+                Name = "SIAULIAI",
                 Subject = miestai,
                 SubjectId = miestai.Id,
             };
@@ -381,10 +377,13 @@ namespace HangmanGame.DL
             {
                 Name = "Tester",
             };
-            ScoreBoard sb = new ScoreBoard() { 
+            ScoreBoard sb = new ScoreBoard() {
                 Time = DateTime.UtcNow,
-                Word=word,
-                User=user
+                Word = word,
+                WordToGuess = word.Name,
+                User = user,
+                IsCorrect = true,
+                GuessCount = 2
             };
 
             context.ScoreBoards.Add(sb);

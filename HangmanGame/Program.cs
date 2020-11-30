@@ -1,5 +1,6 @@
 ﻿using HangmanGame.BL.Services;
 using HangmanGame.DL;
+using HangmanGame.Interfaces;
 using HangmanGame.Services;
 using System;
 using System.Collections.Generic;
@@ -13,13 +14,31 @@ namespace HangmanGame
     {
         static void Main(string[] args)
         {
-            GameService s = new GameService();
-            StatisticsService stats = new StatisticsService();
+            bool exitProgram = false;
 
-            PlayerManager pl = new PlayerManager();
-            pl.DeleteUser(2);
+            IUiMessageFactory uiMessageFactory = new UiMessageFactory();
+            IGameService gameService = new GameService();
+            IStatisticsService statsService = new StatisticsService();
 
-            Console.WriteLine();
+            while (!exitProgram)
+            {
+                Console.Clear();
+                uiMessageFactory.WelcomeMessage();
+
+                if (Console.ReadKey().Key == ConsoleKey.D1)
+                {
+                    statsService.Begin();
+                }
+                if (Console.ReadKey().Key == ConsoleKey.D2)
+                {
+                    gameService.Begin();
+                }
+
+                if(Console.ReadKey().Key == ConsoleKey.Escape)
+                {
+                    exitProgram = true;
+                }
+            }
         }
     }
 }

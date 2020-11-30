@@ -12,6 +12,5 @@ namespace HangmanGame.DL.Models
         public string Name { get; set; }
         public int SubjectId { get; set; }
         public virtual Subject Subject { get; set; }
-        public virtual List<ScoreBoard> ScoreBoards { get; set; }
     }
 }

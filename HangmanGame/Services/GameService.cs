@@ -10,18 +10,20 @@ using System.Text;
 namespace HangmanGame.Services
 {
 
-    class GameService : IGameService
+    class GameService :  IGameService
     {
         private IWordManager _wordManager;
         private IUiMessageFactory _uiMessageFactory;
         private IRandomUtils _randomUtils;
         private IHiddenWordManager _hiddenWordManager;
         private ICRUDRepository _playerManager;
+        private IScoreboardManager _scoreBoardManager;
 
         private Subject _selectedSubject;
         private List<Word> _wordListWithSubject;
-        private const int spejimuSkaicius = 7;
-        private int neteisingiSpejimai = 0;
+        private const int maxGuess = 7;
+        private int guessCount = 0;
+        private int incorrectGuess = 0;
         private bool isWordGuessedCorrectly = false;
 
         public GameService()
@@ -32,10 +34,12 @@ namespace HangmanGame.Services
             _selectedSubject = new Subject();
             _wordListWithSubject = new List<Word>();
             _playerManager = new PlayerManager();
+            _scoreBoardManager = new ScoreboardManager();
         }
 
         public void Begin()
         {
+            Console.Clear();
             _uiMessageFactory.InputNameMessage();
 
             User user = new User();
@@ -50,29 +54,34 @@ namespace HangmanGame.Services
             CreateHiddenWordInstance(selectedWord);
             _wordManager.AddWordToPlayedList(selectedWord);
 
-            _uiMessageFactory.InputMessage();
+            _uiMessageFactory.FirstGuessMessage();
 
             StringBuilder stringBuild = new StringBuilder();
             for (int i = 0; i < selectedWord.Name.Length; i++)
             {
                 stringBuild.Append('_');
             }
+            _uiMessageFactory.DisplayHangman(
+                    incorrectGuess,
+                    selectedWord.Name,
+                    _hiddenWordManager.GetGuessedLettersList(),
+                    _hiddenWordManager.GetCorrectLettersList());
 
-            while (neteisingiSpejimai < spejimuSkaicius || isWordGuessedCorrectly)
+            while (incorrectGuess < maxGuess && !isWordGuessedCorrectly)
             {
-                string input = Console.ReadLine();
+                string input = Console.ReadLine().ToUpper();
                 foreach (var item in input)
                 {
                     GuessLetter(item);
                 }
 
                 _uiMessageFactory.DisplayHangman(
-                    neteisingiSpejimai,
+                    incorrectGuess,
                     selectedWord.Name,
                     _hiddenWordManager.GetGuessedLettersList(),
                     _hiddenWordManager.GetCorrectLettersList());
 
-                CheckIfWordIsGuessedCorrectly(selectedWord.Name, stringBuild);
+                isWordGuessedCorrectly = CheckIfWordIsGuessedCorrectly(selectedWord.Name, stringBuild);
             }
 
             if (isWordGuessedCorrectly)
@@ -81,8 +90,16 @@ namespace HangmanGame.Services
                 _uiMessageFactory.DefeatMessage();
 
             RemoveWordFromList(selectedWord);
+            SaveScoreBoard(user, selectedWord);
+        }
 
-            //ADD TO STATISTICS
+        private void SaveScoreBoard(User user, Word selectedWord)
+        {
+            _scoreBoardManager.CreateScoreBoard(
+                            user,
+                            selectedWord,
+                            guessCount,
+                            isWordGuessedCorrectly);
         }
 
         public virtual bool CheckIfWordIsGuessedCorrectly(string word, StringBuilder stringBuild)
@@ -97,12 +114,10 @@ namespace HangmanGame.Services
             }
             if (stringBuild.ToString() == word)
             {
-                isWordGuessedCorrectly = true;
                 return true;
             }
             else
             {
-                isWordGuessedCorrectly = false;
                 return false;
             }
         }
@@ -131,6 +146,7 @@ namespace HangmanGame.Services
         }
         public virtual void GuessLetter(char inputLetter)
         {
+            GuessCount();
             _hiddenWordManager.AddGuessedLetterToHiddenWordList(inputLetter);
             if (_hiddenWordManager.CheckIfHiddenWordContainsLetter(inputLetter))
             {
@@ -138,14 +154,18 @@ namespace HangmanGame.Services
             }
             else
             {
-                UpdateGuessCount();
+                UpdateIncorrectGuessCount();
             }
-
         }
 
-        public virtual void UpdateGuessCount()
+        private void GuessCount()
         {
-            neteisingiSpejimai++;
+            guessCount++;
+        }
+
+        public virtual void UpdateIncorrectGuessCount()
+        {
+            incorrectGuess++;
         }
 
         public virtual void CreateHiddenWordInstance(Word word)

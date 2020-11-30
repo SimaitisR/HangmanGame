@@ -10,6 +10,6 @@ namespace HangmanGame.Interfaces
         void CreateHiddenWordInstance(Word word);
         void GuessLetter(char inputLetter);
         Subject SelectSubjectFromList();
-        void UpdateGuessCount();
+        void UpdateIncorrectGuessCount();
     }
 }

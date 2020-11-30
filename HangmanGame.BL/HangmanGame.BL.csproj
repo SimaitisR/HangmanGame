@@ -53,13 +53,16 @@
   <ItemGroup>
     <Compile Include="Interfaces\ICRUDRepository.cs" />
     <Compile Include="Models\HiddenWord.cs" />
+    <Compile Include="Models\UserStatisticsModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Interfaces\IWordManager.cs" />
     <Compile Include="Interfaces\IRandomUtils.cs" />
     <Compile Include="Services\HiddenWordManager.cs" />
     <Compile Include="Interfaces\IHiddenWordManager.cs" />
+    <Compile Include="Interfaces\IScoreboardManager.cs" />
     <Compile Include="Services\PlayerManager.cs" />
     <Compile Include="Services\RandomUtils.cs" />
+    <Compile Include="Services\ScoreboardManager.cs" />
     <Compile Include="Services\WordManager.cs" />
   </ItemGroup>
   <ItemGroup>
